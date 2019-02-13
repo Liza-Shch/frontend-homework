@@ -1,19 +1,22 @@
 'use strict';
-
-function anagram(words) {
-    var anagramsGroup = {};
-
-    for (var i = 0; i < words.length; i++) {
-        var sortedWord = words[i].toLowerCase().split('').sort().join('');
-        if (anagramsGroup[sortedWord] === undefined) {
+/**
+ * Возвращает отсортированный массив массивов отсортированных анарграмм
+ * @param {array} words Массив слов
+ * @return {array} Отсортированный массив массивов анаграмм
+ */
+const anagram = words => {
+    const anagramsGroup = {};
+    words.forEach(function(word) {
+        let sortedWord = word.toLowerCase().split('').sort().join('');
+        if (!anagramsGroup[sortedWord]) {
             anagramsGroup[sortedWord] = []
         }
-        anagramsGroup[sortedWord].push(words[i]);
-    }
+        anagramsGroup[sortedWord].push(word);
+    });
 
-    var matrixOfAnagrams = [];
+    const matrixOfAnagrams = [];
     for (var key in anagramsGroup) {
-        if (anagramsGroup[key].length <= 1) {
+        if (anagramsGroup[key].length < 2) {
             continue;
         } 
         anagramsGroup[key].sort();
