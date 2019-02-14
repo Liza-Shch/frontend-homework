@@ -45,4 +45,12 @@ QUnit.module('Тестируем функцию anagram', function () {
 
 		assert.deepEqual(anagram(input), output);
 	});
+
+	QUnit.test('Невалидный ввод', function(assert) {
+		const input = 'бла бла бла';
+		
+		const output = null;
+
+		assert.deepEqual(anagram(input), output);
+	});
 });
