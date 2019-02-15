@@ -22,9 +22,7 @@ const anagram = words => {
 
     const matrixOfAnagrams = [];
 
-    Object.keys(anagramsGroup).filter(key => {
-        return anagramsGroup[key].length > 1;
-    }).forEach(key => {
+    Object.keys(anagramsGroup).filter(key => anagramsGroup[key].length > 1 ).forEach(key => { 
         matrixOfAnagrams.push(anagramsGroup[key].sort());
     });
 
