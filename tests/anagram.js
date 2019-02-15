@@ -49,7 +49,7 @@ QUnit.module('Тестируем функцию anagram', function () {
 	QUnit.test('Невалидный ввод', function(assert) {
 		const input = 'бла бла бла';
 		
-		const output = null;
+		const output = undefined;
 
 		assert.deepEqual(anagram(input), output);
 	});

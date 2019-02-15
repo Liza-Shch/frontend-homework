@@ -8,7 +8,7 @@
 const anagram = words => {
     if (!Array.isArray(words)) {
         console.log('Аргумент функции не является массивом!');
-        return null;
+        return;
     }
 
     const anagramsGroup = {};
@@ -21,13 +21,14 @@ const anagram = words => {
     });
 
     const matrixOfAnagrams = [];
-    for (var key in anagramsGroup) {
-        if (anagramsGroup[key].length < 2) {
-            continue;
-        } 
+    const keysOfAnagramsGroup = Object.keys(anagramsGroup);
+    const anagrams = keysOfAnagramsGroup.filter(key => {
+        return anagramsGroup[key].length > 1;
+    });
+    anagrams.forEach(key => {
         anagramsGroup[key].sort();
         matrixOfAnagrams.push(anagramsGroup[key]);
-    }
+    });
 
     matrixOfAnagrams.sort();
     
