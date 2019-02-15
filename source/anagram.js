@@ -21,13 +21,11 @@ const anagram = words => {
     });
 
     const matrixOfAnagrams = [];
-    const keysOfAnagramsGroup = Object.keys(anagramsGroup);
-    const anagrams = keysOfAnagramsGroup.filter(key => {
+
+    Object.keys(anagramsGroup).filter(key => {
         return anagramsGroup[key].length > 1;
-    });
-    anagrams.forEach(key => {
-        anagramsGroup[key].sort();
-        matrixOfAnagrams.push(anagramsGroup[key]);
+    }).forEach(key => {
+        matrixOfAnagrams.push(anagramsGroup[key].sort());
     });
 
     matrixOfAnagrams.sort();
